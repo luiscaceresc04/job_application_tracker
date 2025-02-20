@@ -1,0 +1,29 @@
+<h1>New Job Application</h1>
+
+<%= form_with(model: @job_application, local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :company_name %>
+    <%= form.text_field :company_name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, JobApplication.statuses.keys, {}, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :applied_on %>
+    <%= form.date_field :applied_on, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Create Job Application', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', job_applications_path, class: 'btn btn-secondary' %>

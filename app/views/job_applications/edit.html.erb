@@ -1,0 +1,45 @@
+<h1 class="text-2xl font-bold mb-4">Edit Job Application</h1>
+
+<div class="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto">
+  <%= form_with(model: @job_application, local: true, class: "space-y-4") do |form| %>
+    <% if @job_application.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@job_application.errors.count, "error") %> prohibited this job application from being saved:</h2>
+        <ul>
+          <% @job_application.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :title, "Job Title", class: "block font-medium text-gray-700" %>
+      <%= form.text_field :title, class: "w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300" %>
+    </div>
+
+    <div>
+      <%= form.label :company_name, "Company Name", class: "block font-medium text-gray-700" %>
+      <%= form.text_field :company_name, class: "w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300" %>
+    </div>
+
+    <div>
+      <%= form.label :applied_on, "Applied On", class: "block font-medium text-gray-700" %>
+      <%= form.date_field :applied_on, class: "w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300" %>
+    </div>
+
+    <div>
+      <%= form.label :status, "Application Status", class: "block font-medium text-gray-700" %>
+      <%= form.select :status, JobApplication.statuses.keys.map { |s| [s.humanize, s] }, {}, class: "w-full p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300" %>
+    </div>
+
+    <div class="flex justify-between items-center">
+      <%= link_to "Cancel", job_applications_path, class: "text-gray-500 hover:text-gray-700" %>
+    </div>
+
+    <div class="mt-3">
+      <%= form.submit "Save Changes", class: "btn btn-success" %>
+    </div>
+
+  <% end %>
+</div>

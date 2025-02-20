@@ -1,0 +1,52 @@
+<h1 class="text-center my-5">Job Applications</h1>
+
+<%= link_to 'New Job Application', new_job_application_path, class: 'btn btn-primary mb-4' %>
+
+<h2 class="my-4">External Job Listings</h2>
+
+<div class="row">
+  <% @external_jobs.each do |job| %>
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><%= job['jobTitle'] %></h5>
+          <p class="card-text"><%= job['companyName'] %></p>
+          <p class="card-text"><%= job['jobGeo'] %></p>
+          <%= link_to 'View Job', job['url'], target: '_blank', class: 'btn btn-outline-primary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+<h2 class="my-4">Your Job Applications</h2>
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Applied On</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @job_applications.each do |job_application| %>
+      <tr>
+        <td><%= job_application.title %></td>
+        <td><%= job_application.company_name %></td>
+        <td><%= job_application.applied_on %></td>
+        <td><%= job_application.status %></td>
+        <td>
+          <%= link_to 'Edit', edit_job_application_path(job_application), class: 'btn btn-warning btn-sm' %> 
+          |
+          <%= link_to 'Delete', job_application_path(job_application), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
