@@ -16,7 +16,7 @@ RSpec.describe JobApplicationsController, type: :controller do
 
     it "assigns the correct job applications to @job_applications" do
       get :index
-      expect(assigns(:job_applications)).to eq([job_application])
+      expect(assigns(:job_applications)).to eq([ job_application ])
     end
   end
 end
