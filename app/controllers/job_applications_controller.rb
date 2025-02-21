@@ -1,7 +1,5 @@
 class JobApplicationsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  before_action :set_job_application, only: [:show, :edit, :update, :destroy]
-
+  
   def index
     if JobApplication.count == 0
       JobicyJobImporter.import
@@ -31,8 +29,7 @@ class JobApplicationsController < ApplicationController
 
   def update
     if @job_application.update(job_application_params)
-      if @job_application.interview_scheduled?
-      end
+      
       redirect_to root_path, notice: "Job application updated successfully."
      else
       flash.now[:alert] = "There was an error updating the job application."
