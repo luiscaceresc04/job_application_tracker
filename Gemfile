@@ -67,7 +67,7 @@ gem "devise", "~> 4.9" # Para autenticación de usuarios
 gem "sidekiq", "~> 6.5" # Para trabajos en segundo plano
 gem "redis", "~> 4.0" # Requerido para Sidekiq
 gem "httparty", "~> 0.21" # Para consumir la API de trabajos
-gem "rspec-rails", "~> 6.0" # Para pruebas
+gem "rspec-rails", "~> 7.1" # Para pruebas
 gem "bootstrap", "~> 5.3"
 gem "shoulda-matchers", "~> 4.0"
 gem "sassc-rails", "~> 2.1"
