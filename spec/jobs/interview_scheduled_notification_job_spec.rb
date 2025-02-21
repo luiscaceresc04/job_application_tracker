@@ -7,6 +7,6 @@ RSpec.describe InterviewScheduledNotificationJob, type: :job do
     job_application = create(:job_application, status: "interview_scheduled")
     expect {
       InterviewScheduledNotificationJob.perform_later(job_application.id)
-    }.to have_enqueued_job
+    }.to have_enqueued_job(InterviewScheduledNotificationJob)
   end
 end

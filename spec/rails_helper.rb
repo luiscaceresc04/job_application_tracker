@@ -29,6 +29,9 @@ begin
 rescue ActiveRecord::PendingMigrationError => e
   abort e.to_s.strip
 end
+
+ActiveJob::Base.queue_adapter = :test
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_paths = [
@@ -63,5 +66,11 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+  config.include Shoulda::Matchers::ActiveModel, type: :model
+  config.include Shoulda::Matchers::ActiveRecord, type: :model
+  # Configura el adaptador de cola de trabajos para pruebas
+  config.use_transactional_fixtures = true
   config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
+
 end
