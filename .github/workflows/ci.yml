@@ -18,6 +18,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Ensure Gemfile.lock is not frozen
+        run: bundle config set frozen false
+
       - name: Scan for common Rails security vulnerabilities
         run: bin/brakeman --no-pager
 
@@ -33,6 +36,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Ensure Gemfile.lock is not frozen
+        run: bundle config set frozen false
+
       - name: Scan for JavaScript vulnerabilities
         run: bin/importmap audit
 
@@ -47,6 +53,9 @@ jobs:
         with:
           ruby-version: .ruby-version
           bundler-cache: true
+
+      - name: Ensure Gemfile.lock is not frozen
+        run: bundle config set frozen false
 
       - name: Lint Ruby files
         run: bin/rubocop -f github
@@ -78,6 +87,9 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
+      - name: Ensure Gemfile.lock is not frozen
+        run: bundle config set frozen false
+
       - name: Install gems
         run: bundle install
 
@@ -95,16 +107,4 @@ jobs:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/job_application_tracker_test
         run: bin/rails test
 
-      - name: Save screenshots from failed system tests
-        uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: screenshots
-          path: tmp/screenshots
-          if-no-files-found: ignore
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}-${{ github.run_id }}
+      - name: Save screenshots 
