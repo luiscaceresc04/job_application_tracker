@@ -4,7 +4,9 @@ RSpec.describe JobApplicationsController, type: :controller do
   let(:user) { create(:user) }
   let(:job_application) { create(:job_application, user: user) }
 
-  before { sign_in user }
+  before do
+    sign_in user
+  end
 
   describe "GET #index" do
     it "returns a success response" do

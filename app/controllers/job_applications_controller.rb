@@ -8,6 +8,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    @job_application = JobApplication.find(params[:id])
   end
 
   def new
@@ -41,6 +42,8 @@ class JobApplicationsController < ApplicationController
     @job_application.destroy
     redirect_to job_applications_path, notice: "Job application deleted successfully."
   end
+
+  before_action :set_job_application, only: %i[show edit update destroy]
 
   private
 
