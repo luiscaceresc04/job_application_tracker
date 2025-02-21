@@ -62,15 +62,14 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'devise', '~> 4.9' # Para autenticación de usuarios
-gem 'sidekiq', '~> 6.5' # Para trabajos en segundo plano
-gem 'redis', '~> 4.0' # Requerido para Sidekiq
-gem 'httparty', '~> 0.21' # Para consumir la API de trabajos
-gem 'rspec-rails', '~> 6.0' # Para pruebas
-gem 'bootstrap', '~> 5.3'
+gem "devise", "~> 4.9" # Para autenticación de usuarios
+gem "sidekiq", "~> 6.5" # Para trabajos en segundo plano
+gem "redis", "~> 4.0" # Requerido para Sidekiq
+gem "httparty", "~> 0.21" # Para consumir la API de trabajos
+gem "rspec-rails", "~> 6.0" # Para pruebas
+gem "bootstrap", "~> 5.3"
 gem "sassc-rails", "~> 2.1"
-gem 'sprockets-rails'
-gem 'spring'
-gem 'faraday'
-gem 'dotenv-rails', groups: [:development, :test]
-
+gem "sprockets-rails"
+gem "spring"
+gem "faraday"
+gem "dotenv-rails", groups: [ :development, :test ]

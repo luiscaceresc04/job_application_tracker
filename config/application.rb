@@ -25,6 +25,5 @@ module JobApplicationTracker
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_job.queue_adapter = :sidekiq
     config.action_controller.raise_on_missing_callback_actions = false
-
   end
 end

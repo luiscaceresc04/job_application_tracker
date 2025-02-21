@@ -41,21 +41,21 @@ Rails.application.configure do
 
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com', # Para Gmail (puedes cambiar a otro proveedor si lo prefieres)
+    address: "smtp.gmail.com", # Para Gmail (puedes cambiar a otro proveedor si lo prefieres)
     port: 587,
-    domain: 'gmail.com', # O tu dominio si usas otro servicio
-    user_name: ENV['EMAIL_USERNAME'], # Usa una variable de entorno para almacenar el usuario de correo
-    password: ENV['EMAIL_PASSWORD'], # Usa una variable de entorno para almacenar la contraseña
-    authentication: 'plain',
+    domain: "gmail.com", # O tu dominio si usas otro servicio
+    user_name: ENV["EMAIL_USERNAME"], # Usa una variable de entorno para almacenar el usuario de correo
+    password: ENV["EMAIL_PASSWORD"], # Usa una variable de entorno para almacenar la contraseña
+    authentication: "plain",
     enable_starttls_auto: true
   }
-  
+
   config.action_mailer.raise_delivery_errors = true
 
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: "localhost", port: 3000 }
 
-  
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log

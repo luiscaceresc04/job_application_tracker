@@ -1,4 +1,4 @@
-require 'sidekiq/web'
+require "sidekiq/web"
 
 Rails.application.routes.draw do
   root "job_applications#index"
@@ -13,8 +13,7 @@ Rails.application.routes.draw do
 
   get "/job_listings", to: "job_listings#index", as: :job_listings
 
-  mount Sidekiq::Web => '/sidekiq'
-  
-  post 'import_jobicy_jobs', to: 'job_applications#import_jobicy_jobs'
+  mount Sidekiq::Web => "/sidekiq"
 
+  post "import_jobicy_jobs", to: "job_applications#import_jobicy_jobs"
 end

@@ -1,5 +1,5 @@
-require 'net/http'
-require 'json'
+require "net/http"
+require "json"
 
 class JobicyJobsService
   BASE_URL = "https://jobicy.com/api/v2/remote-jobs"

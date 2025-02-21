@@ -3,4 +3,3 @@ class ChangeStatusToIntegerInJobApplications < ActiveRecord::Migration[8.0]
     change_column :job_applications, :status, :integer, default: 0, null: false
   end
 end
-

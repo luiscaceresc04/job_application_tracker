@@ -1,5 +1,4 @@
 class JobApplicationsController < ApplicationController
-  
   def index
     if JobApplication.count == 0
       JobicyJobImporter.import
@@ -18,7 +17,7 @@ class JobApplicationsController < ApplicationController
   def create
     @job_application = current_user.job_applications.new(job_application_params)
     if @job_application.save
-      redirect_to @job_application, notice: 'Job application was successfully created.'
+      redirect_to @job_application, notice: "Job application was successfully created."
     else
       render :new
     end
@@ -29,14 +28,14 @@ class JobApplicationsController < ApplicationController
 
   def update
     if @job_application.update(job_application_params)
-      
+
       redirect_to root_path, notice: "Job application updated successfully."
-     else
+    else
       flash.now[:alert] = "There was an error updating the job application."
       render :edit
     end
   end
-  
+
 
   def destroy
     @job_application.destroy
