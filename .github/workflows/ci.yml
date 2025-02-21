@@ -86,9 +86,8 @@ jobs:
           RAILS_ENV: test
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/job_application_tracker_test
         run: |
-          bin/rails db:create
-          bin/rails db:migrate
-          bin/rails db:test:prepare
+          bundle exec rails db:create
+          bundle exec rails db:migrate
 
       - name: Run tests
         env:

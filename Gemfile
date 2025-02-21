@@ -72,7 +72,6 @@ gem "bootstrap", "~> 5.3"
 gem "shoulda-matchers", "~> 4.0"
 gem "sassc-rails", "~> 2.1"
 gem "sprockets-rails"
-gem "spring"
 gem "faraday"
 gem "dotenv-rails", groups: [ :development, :test ]
 gem "faker"

@@ -96,3 +96,12 @@ production:
     <<: *primary_production
     database: job_application_tracker_production_cable
     migrations_paths: db/cable_migrate
+
+test:
+  adapter: postgresql
+  database: job_application_tracker_test
+  username: postgres
+  password: postgres
+  host: localhost
+  pool: 5
+
